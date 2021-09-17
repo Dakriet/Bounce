@@ -1,33 +1,29 @@
-
-
+// globale variabelen
+var superbal = New SuperBal
+var ballen = [];
 
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
  * de p5 library, zodra het spel geladen is in de browser
  */
-var x = 0;
-var y = 0;
-
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
-  
-}
+  for (var i = 0; i < 25; i++) {
+    var randomx = random(50, 1230);
+    var randomy = random(50, 670);
+    var randomSpeedX = random (-5, 5);
+    var randomSpeedY = random (-5, 5);
 
-  if(y >= 0) {
-  y++; 
+    var bal = new Bal(randomx, randomy, randomSpeedX, randomSpeedY);
+
+    ballen.push(bal);
   }
-  if (x >= 0){
-    x++;
-  }
-  if (x <= 1280){
-    x--
-  }
-  if (y <= 720){
-    y--
-  }
+
+
+}
 
 
 /**
@@ -36,14 +32,15 @@ function setup() {
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
 function draw() {
-  // stel vulkleur in
-  fill(100, 100, 255);
-
-  // teken een cirkel
-  ellipse(x,y,80,80);
-
-  x = x + speedX
-  y = y + speedY
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
+
+  for(var i = 0; i < ballen.length; i++) {
+    ballen[i].show();
+    ballen[i].update();
+    
+
+  }
+  superbal.show();
+  superbal.update();
 }
