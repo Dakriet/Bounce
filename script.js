@@ -1,5 +1,4 @@
 // globale variabelen
-var superbal = New SuperBal
 var ballen = [];
 
 /**
@@ -22,6 +21,12 @@ function setup() {
     ballen.push(bal);
   }
 
+  var superbal = new Superbal(400, 300, 10, 10);
+  ballen.push(superbal); 
+
+  var nummerbal = new Nummerbal(700, 600, 8, 8);
+  ballen.push(nummerbal);
+
 
 }
 
@@ -33,14 +38,10 @@ function setup() {
  */
 function draw() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('white');
 
   for(var i = 0; i < ballen.length; i++) {
     ballen[i].show();
     ballen[i].update();
-    
-
   }
-  superbal.show();
-  superbal.update();
 }
