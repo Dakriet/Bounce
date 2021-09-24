@@ -38,7 +38,7 @@ function setup() {
  */
 function draw() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('white');
+  background('blue');
 
   for(var i = 0; i < ballen.length; i++) {
     ballen[i].show();
